@@ -46,8 +46,13 @@ public class ClienteService {
 		return this.clienteRepository.findByNome(nome);
 	}
 	
-	public List <Cliente>findByFuncionarioNome(String nome){
-		return this.clienteRepository.findByFuncionarioNome(nome);
+	public List<Cliente>findByNomeLike(String nome){
+		return this.clienteRepository.findByNomeLike(nome);
+	}
+	
+	public Cliente findByTelefone(String telefone) {
+		Cliente cliente = clienteRepository.findByTelefone(telefone);
+		return cliente;
 	}
 	
 }
