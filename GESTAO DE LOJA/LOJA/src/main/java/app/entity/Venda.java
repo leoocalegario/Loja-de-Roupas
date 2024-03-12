@@ -23,30 +23,26 @@ import lombok.Setter;
 @Entity
 
 public class Venda {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull(message = "Endereço não pode ser nulo")
 	private String endereco;
 	@NotNull(message = "Vt não pode ser nulo")
 	private int vt;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("cliente")
 	private Cliente cliente;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("funcionario")
 	private Funcionario funcioanario;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("produtos")
 	private Produto produto;
-	
-	
-	
-	
 
 }

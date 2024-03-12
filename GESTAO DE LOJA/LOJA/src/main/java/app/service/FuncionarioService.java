@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 import app.entity.Funcionario;
 import app.repository.FuncionarioRepository;
 
@@ -12,19 +11,19 @@ public class FuncionarioService {
 
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
-	
+
 	public String save(Funcionario funcionario) {
 		this.funcionarioRepository.save(funcionario);
-		return funcionario.getNome()+ " salvo com sucesso";
+		return funcionario.getNome() + " salvo com sucesso";
 	}
 
 	public String update(long id, Funcionario funcionario) {
 		funcionario.setId(id);
 		this.funcionarioRepository.save(funcionario);
-		return funcionario.getNome()+ " atualizado com sucesso";
+		return funcionario.getNome() + " atualizado com sucesso";
 	}
 
-	public List<Funcionario> listAll(){
+	public List<Funcionario> listAll() {
 		return this.funcionarioRepository.findAll();
 	}
 
@@ -40,19 +39,19 @@ public class FuncionarioService {
 		return "Funcionario deletado com sucesso!";
 
 	}
-	
+
 	public Funcionario findByMatricula(String Matricula) {
 		Funcionario funcionario = funcionarioRepository.findByMatricula(Matricula);
 		return funcionario;
 	}
-	
+
 	public List<Funcionario> findByIdade(int idade) {
 		return this.funcionarioRepository.findByIdade(idade);
-		
+
 	}
-	
-	public List<Funcionario> findByNome(String nome){
+
+	public List<Funcionario> findByNome(String nome) {
 		return this.funcionarioRepository.findByNome(nome);
 	}
-	
+
 }
