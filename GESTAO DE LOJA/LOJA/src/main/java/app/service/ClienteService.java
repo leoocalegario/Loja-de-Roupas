@@ -10,22 +10,22 @@ import app.repository.ClienteRepository;
 
 @Service
 public class ClienteService {
-	
+
 	@Autowired
 	private ClienteRepository clienteRepository;
-	
+
 	public String save(Cliente cliente) {
 		this.clienteRepository.save(cliente);
-		return cliente.getNome()+ " salvo com sucesso";
+		return cliente.getNome() + " salvo com sucesso";
 	}
 
 	public String update(long id, Cliente cliente) {
 		cliente.setId(id);
 		this.clienteRepository.save(cliente);
-		return cliente.getNome()+ " atualizado com sucesso";
+		return cliente.getNome() + " atualizado com sucesso";
 	}
 
-	public List<Cliente> listAll(){
+	public List<Cliente> listAll() {
 		return this.clienteRepository.findAll();
 	}
 
@@ -41,18 +41,18 @@ public class ClienteService {
 		return "Cliente deletado com sucesso!";
 
 	}
-	
-	public List <Cliente>findByNome(String nome){
+
+	public List<Cliente> findByNome(String nome) {
 		return this.clienteRepository.findByNome(nome);
 	}
-	
-	public List<Cliente>findByNomeLike(String nome){
+
+	public List<Cliente> findByNomeLike(String nome) {
 		return this.clienteRepository.findByNomeLike(nome);
 	}
-	
+
 	public Cliente findByTelefone(String telefone) {
 		Cliente cliente = clienteRepository.findByTelefone(telefone);
 		return cliente;
 	}
-	
+
 }

@@ -22,21 +22,21 @@ import lombok.Setter;
 @Entity
 
 public class Funcionario {
-	
-		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private long id;
-		
-		@NotNull(message = "Nome não pode ser nulo")
-		private String nome;
-		
-		@NotNull(message = "Idade não pode ser nulo")
-		private int idade;
-		
-		@NotNull(message = "Matricula não pode ser nulo")
-		private int matricula;
-		
-		@OneToMany(mappedBy = "venda")
-		@JsonIgnoreProperties("venda")
-		private List <Venda>venda;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@NotNull(message = "Nome não pode ser nulo")
+	private String nome;
+
+	@NotNull(message = "Idade não pode ser nulo")
+	private int idade;
+
+	@NotNull(message = "Matricula não pode ser nulo")
+	private int matricula;
+
+	@OneToMany(mappedBy = "venda")
+	@JsonIgnoreProperties("venda")
+	private List<Venda> venda;
 }

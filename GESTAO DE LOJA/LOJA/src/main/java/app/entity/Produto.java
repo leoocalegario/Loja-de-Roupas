@@ -22,20 +22,19 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 public class Produto {
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull(message = "Nome não pode ser nulo")
 	private String nome;
-	
+
 	@NotNull(message = "Valor não pode ser nulo")
 	private int valor;
-	
+
 	@OneToMany(mappedBy = "venda")
 	@JsonIgnoreProperties("venda")
-	private List <Venda>venda;
+	private List<Venda> venda;
 
 }

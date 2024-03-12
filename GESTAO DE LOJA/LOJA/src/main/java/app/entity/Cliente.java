@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity
 
 public class Cliente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -30,14 +30,14 @@ public class Cliente {
 	private String nome;
 	@NotNull(message = "CPF não pode ser nulo")
 	private String cpf;
-	
+
 	@NotNull(message = "Idade não pode ser nulo")
 	private int idade;
 	@NotNull(message = "Telefone não pode ser nulo")
 	private String telefone;
-	
+
 	@OneToMany(mappedBy = "venda")
 	@JsonIgnoreProperties("venda")
-	private List<Venda>venda;
+	private List<Venda> venda;
 
 }
